@@ -12,56 +12,55 @@
       <ion-label>
         <h2>Serviço de Câmbios</h2>
       </ion-label>
-      <ion-row class="ion-align-items-center">
-      
-      </ion-row>
-      <ion-row class="ion-align-items-center">
-        <ion-col size="10" >
-          <ion-row>
-            <ion-col size="2">
-              <ion-list class="combo" >
-                <ion-select placeholder="USD">
-                  <ion-select-option value="apples">MZN</ion-select-option>
-                  <ion-select-option value="oranges">USD</ion-select-option>
-                  <ion-select-option value="bananas">EUR</ion-select-option>
-                </ion-select>
-            </ion-list>
-            </ion-col>
-            <ion-col size="8">
-              <ion-searchbar placeholder="{{base_code}}" searchIcon="location-outline"></ion-searchbar>
-            </ion-col>
-          </ion-row>
-           
-            
-        </ion-col>
-        <ion-col size="10" >
-          <ion-button color="light" fill="clear"  (click)="exchange()">
-            <ion-icon slot="icon-only" name="swap-horizontal-outline"></ion-icon>
-          </ion-button> 
-
-          <ion-text color="light">
-            123123 MT ->  3424 USD
-          </ion-text>
-        </ion-col>
-        <ion-col size="10" >
-          <ion-row>
-            <ion-col size="2">
-              <ion-list class="combo" >
-                <ion-select placeholder="USD">
-                  <ion-select-option value="apples">MZN</ion-select-option>
-                  <ion-select-option value="oranges">USD</ion-select-option>
-                  <ion-select-option value="bananas">EUR</ion-select-option>
-                </ion-select>
-            </ion-list>
-            </ion-col>
-            <ion-col size="8">
-              <ion-searchbar placeholder="{{target_code}}" searchIcon="location-outline"></ion-searchbar>
-            </ion-col>
-          </ion-row>
-           
-            
-        </ion-col>
-      </ion-row>
+      <form [formGroup]="formData" (ngSubmit)="exchange()">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="10" >
+            <ion-row>
+              <ion-col size="2">
+                <ion-list class="combo" >
+                  <ion-select placeholder="USD" formControlName="base_code"  (ionChange)="updateBaseCode()" >
+                    <ion-select-option *ngFor="let code of colunas, first as f"  [value]="code" >
+                      {{code}}
+                    </ion-select-option>
+                  </ion-select>   
+              </ion-list>
+              </ion-col>
+              <ion-col size="8">
+                <ion-searchbar placeholder="{{base_code > 0 ? base_code : 'introduza um valor' }}" [(ngModel)]="valorr" formControlName="valor" searchIcon="location-outline"></ion-searchbar>
+              </ion-col>
+            </ion-row>
+             
+              
+          </ion-col>
+          <ion-col size="10" >
+            <ion-button color="light" fill="clear"  type="submit">
+              <ion-icon slot="icon-only" name="swap-horizontal-outline"></ion-icon>
+            </ion-button> 
+  
+            <ion-text color="light">
+            </ion-text>
+          </ion-col>
+          <ion-col size="10" >
+            <ion-row>
+              <ion-col size="2">
+                <ion-list class="combo" >
+                  <ion-select placeholder="USD" formControlName="target_code"  (ionChange)="updateTargetCode()" >
+                    <ion-select-option *ngFor="let code of colunas, first as f" [value]="code">
+                      {{code}}
+                    </ion-select-option>
+                  </ion-select>
+              </ion-list>
+              </ion-col>
+              <ion-col size="8">
+                <ion-searchbar placeholder="{{target_code > 0 ? target_code : 'introduza um valor' }}" [value]="convertido" searchIcon="location-outline"></ion-searchbar>
+              </ion-col>
+            </ion-row>
+             
+              
+          </ion-col>
+        </ion-row>
+      </form>
+     
 
     </div>
   </ion-item>
@@ -76,11 +75,11 @@
         <h5>Câmbios de Hoje</h5>
         <ion-row>
           <ion-list>
-            <ion-item class="combo2">
-              <ion-select placeholder="Selecione uma moeda">
-                <ion-select-option value="apples">MZN</ion-select-option>
-                <ion-select-option value="oranges">USD</ion-select-option>
-                <ion-select-option value="bananas">EUR</ion-select-option>
+            <ion-item class="combo2" >
+              <ion-select placeholder="Selecione uma moeda" [(ngModel)]="moeda" (ionChange)="getUpdates()" >
+                <ion-select-option *ngFor="let c of colunas, first as f"  [value]="c" [selected]="f" >
+                  {{c}}
+                </ion-select-option>
               </ion-select>
             </ion-item>
           </ion-list>
@@ -110,57 +109,26 @@
           Data   
         </ion-col>
       </ion-row>
-      <ion-row class="content-row" > 
+      <ion-row class="content-row" *ngIf="items?.time_last_update_unix > 0" > 
         <ion-col size="4">
-            USD
+            {{items?.base_code}}
         </ion-col>
         <ion-col size="2">
-          65   
+          {{items?.time_eol_unix}}   
         </ion-col>
         <ion-col size="2">
-          0,32424   
+          {{items?.time_last_update_unix}}   
+  
         </ion-col>
         <ion-col size="2">
-          0,342223    
+          {{items?.time_next_update_unix}}   
+  
         </ion-col>
         <ion-col size="2">
-          17/July/2022   
+          {{item?.time_next_update_utc}} 
         </ion-col>
       </ion-row>
-      <ion-row class="content-row" > 
-        <ion-col size="4">
-            USD
-        </ion-col>
-        <ion-col size="2">
-          65   
-        </ion-col>
-        <ion-col size="2">
-          0,32424   
-        </ion-col>
-        <ion-col size="2">
-          0,342223    
-        </ion-col>
-        <ion-col size="2">
-          17/July/2022   
-        </ion-col>
-      </ion-row>
-      <ion-row class="content-row" > 
-        <ion-col size="4">
-            USD
-        </ion-col>
-        <ion-col size="2">
-          65   
-        </ion-col>
-        <ion-col size="2">
-          0,32424   
-        </ion-col>
-        <ion-col size="2">
-          0,342223    
-        </ion-col>
-        <ion-col size="2">
-          17/July/2022   
-        </ion-col>
-      </ion-row>
+     
     </ion-card>
     
 

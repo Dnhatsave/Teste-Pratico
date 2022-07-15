@@ -20,4 +20,9 @@ export class PairService {
     getCodes() : Observable<CodesDTO[]>  {
         return this.http.get<CodesDTO[]>(`${API_CONFIG.baseUrl}/${API_KEY.private_keys}/codes`);
     }
+
+    //Challenge
+    challenge(code:string) : Observable<ConvertBaseDTO[]>{
+        return this.http.get<ConvertBaseDTO[]>(`https://open.er-api.com/v6/latest/${code}`);
+    }
 }
