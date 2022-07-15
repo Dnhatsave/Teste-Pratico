@@ -1,20 +1,124 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border">
+  <ion-item lines="none">
+    <ion-avatar slot="end">
+      <img src="https://img.freepik.com/premium-vector/bag-money-logo-template-sack-money-vector-illustration_23987-343.jpg?w=740">
+    </ion-avatar>
+    <ion-button fill="clear" color="light">
+      <ion-icon slot="icon-only" name="menu"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-item lines="none">
+    <div class="ion-padding-start ion-padding-bottom">
+      <ion-label>
+        <h2>Serviço de Câmbios</h2>
+      </ion-label>
+
+      <ion-row class="ion-align-items-center">
+        <ion-col size="10">
+          <ion-searchbar placeholder="MZN" searchIcon="location-outline"></ion-searchbar>
+        </ion-col>
+        <ion-col size="10">
+          <ion-button color="light" fill="clear">
+            <ion-icon slot="icon-only" name="swap-horizontal-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="10">
+          <ion-searchbar placeholder="USD" searchIcon="location-outline"></ion-searchbar>
+        </ion-col>
+      </ion-row>
+
+    </div>
+  </ion-item>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="ion-padding">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-row class="ion-align-items-center ion-padding-horizontal">
+      <ion-col size="6">
+        <h5>Câmbios de Hoje</h5>
+      </ion-col>
+      <ion-col size="6" class="ion-text-right">
+        <ion-button fill="clear" color="dark">
+          <ion-icon slot="icon-only" name="ellipsis-horizontal"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row >
+    <ion-card>
+      <ion-row class="header-row" > 
+        <ion-col size="4">
+  
+        </ion-col>
+        <ion-col size="2">
+          Valor   
+        </ion-col>
+        <ion-col size="2">
+          Ultima Actualizacao   
+        </ion-col>
+        <ion-col size="2">
+          Proxima Actualizacao    
+        </ion-col>
+        <ion-col size="2">
+          Data   
+        </ion-col>
+      </ion-row>
+      <ion-row class="content-row" > 
+        <ion-col size="4">
+            USD
+        </ion-col>
+        <ion-col size="2">
+          65   
+        </ion-col>
+        <ion-col size="2">
+          0,32424   
+        </ion-col>
+        <ion-col size="2">
+          0,342223    
+        </ion-col>
+        <ion-col size="2">
+          17/July/2022   
+        </ion-col>
+      </ion-row>
+      <ion-row class="content-row" > 
+        <ion-col size="4">
+            USD
+        </ion-col>
+        <ion-col size="2">
+          65   
+        </ion-col>
+        <ion-col size="2">
+          0,32424   
+        </ion-col>
+        <ion-col size="2">
+          0,342223    
+        </ion-col>
+        <ion-col size="2">
+          17/July/2022   
+        </ion-col>
+      </ion-row>
+      <ion-row class="content-row" > 
+        <ion-col size="4">
+            USD
+        </ion-col>
+        <ion-col size="2">
+          65   
+        </ion-col>
+        <ion-col size="2">
+          0,32424   
+        </ion-col>
+        <ion-col size="2">
+          0,342223    
+        </ion-col>
+        <ion-col size="2">
+          17/July/2022   
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    
+
   </div>
 </ion-content>
+
+<div class="ion-padding">
+  <ion-badge class="ion-text-center" color="danger" mode="ios">By Dercio Nhatsave.</ion-badge>
+</div>
