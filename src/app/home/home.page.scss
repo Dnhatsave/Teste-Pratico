@@ -1,10 +1,28 @@
 ion-item {
+  
   --background: #316dd0;
   h2 {
     font-weight: bold;
     font-size: 20px;
     color: #ffffff;
   }
+}
+
+.combo{
+  font-size: 10px;
+  border-radius: 10px;
+  margin-right: 20px;
+  height: 60%;
+  width: 70px;
+  margin-top: 12px;
+  --background: #ffffff;
+
+}
+
+.combo2{
+ 
+  --background: #ffffff;
+
 }
 
 ion-item:last-of-type {
@@ -45,3 +63,25 @@ ion-card {
     margin: 0 auto;
   }
 }
+
+.header-row{
+  border-bottom: 1px solid silver;
+}
+.content-row{
+  border-bottom: 1px solid silver;
+
+}
+.roundedInput {
+  --border-color: silver;
+  --border-radius: 5px;
+  --border-width: 1px;
+  --box-shadow: 1px silver;
+  --highlight-height: 0;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  --background: #ffffff;
+
+
+ }
+

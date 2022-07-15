@@ -1,5 +1,5 @@
 <ion-header class="ion-no-border">
-  <ion-item lines="none">
+  <ion-item lines="none" class="header">
     <ion-avatar slot="end">
       <img src="https://img.freepik.com/premium-vector/bag-money-logo-template-sack-money-vector-illustration_23987-343.jpg?w=740">
     </ion-avatar>
@@ -12,18 +12,54 @@
       <ion-label>
         <h2>Serviço de Câmbios</h2>
       </ion-label>
-
       <ion-row class="ion-align-items-center">
-        <ion-col size="10">
-          <ion-searchbar placeholder="MZN" searchIcon="location-outline"></ion-searchbar>
+      
+      </ion-row>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="10" >
+          <ion-row>
+            <ion-col size="2">
+              <ion-list class="combo" >
+                <ion-select placeholder="USD">
+                  <ion-select-option value="apples">MZN</ion-select-option>
+                  <ion-select-option value="oranges">USD</ion-select-option>
+                  <ion-select-option value="bananas">EUR</ion-select-option>
+                </ion-select>
+            </ion-list>
+            </ion-col>
+            <ion-col size="8">
+              <ion-searchbar placeholder="{{base_code}}" searchIcon="location-outline"></ion-searchbar>
+            </ion-col>
+          </ion-row>
+           
+            
         </ion-col>
-        <ion-col size="10">
-          <ion-button color="light" fill="clear">
+        <ion-col size="10" >
+          <ion-button color="light" fill="clear"  (click)="exchange()">
             <ion-icon slot="icon-only" name="swap-horizontal-outline"></ion-icon>
-          </ion-button>
+          </ion-button> 
+
+          <ion-text color="light">
+            123123 MT ->  3424 USD
+          </ion-text>
         </ion-col>
-        <ion-col size="10">
-          <ion-searchbar placeholder="USD" searchIcon="location-outline"></ion-searchbar>
+        <ion-col size="10" >
+          <ion-row>
+            <ion-col size="2">
+              <ion-list class="combo" >
+                <ion-select placeholder="USD">
+                  <ion-select-option value="apples">MZN</ion-select-option>
+                  <ion-select-option value="oranges">USD</ion-select-option>
+                  <ion-select-option value="bananas">EUR</ion-select-option>
+                </ion-select>
+            </ion-list>
+            </ion-col>
+            <ion-col size="8">
+              <ion-searchbar placeholder="{{target_code}}" searchIcon="location-outline"></ion-searchbar>
+            </ion-col>
+          </ion-row>
+           
+            
         </ion-col>
       </ion-row>
 
@@ -34,9 +70,21 @@
 <ion-content [fullscreen]="true">
   <div class="ion-padding">
 
+    
     <ion-row class="ion-align-items-center ion-padding-horizontal">
       <ion-col size="6">
         <h5>Câmbios de Hoje</h5>
+        <ion-row>
+          <ion-list>
+            <ion-item class="combo2">
+              <ion-select placeholder="Selecione uma moeda">
+                <ion-select-option value="apples">MZN</ion-select-option>
+                <ion-select-option value="oranges">USD</ion-select-option>
+                <ion-select-option value="bananas">EUR</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-row>
       </ion-col>
       <ion-col size="6" class="ion-text-right">
         <ion-button fill="clear" color="dark">
